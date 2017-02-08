@@ -13,6 +13,9 @@
 
 using System;
 
+using MiNET;
+using MiNET.Plugins.Attributes;
+
 namespace HerbTeleportRequest.Command
 {
 
