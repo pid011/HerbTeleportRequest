@@ -23,6 +23,6 @@ namespace HerbTeleportRequest
     [Plugin]
     public class HerbTeleportRequest : Plugin
     {
-
+        public const string Prefix = "";
     }
 }

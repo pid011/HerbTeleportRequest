@@ -16,7 +16,7 @@ using System;
 namespace HerbTeleportRequest.Command
 {
 
-    class TpacceptCommand : HerbTeleportRequest
+    class Tpdeny : HerbTeleportRequest
     {
 
     }

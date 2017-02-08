@@ -76,11 +76,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command\TpacceptCommand.cs" />
-    <Compile Include="Command\TpdenyCommand.cs" />
+    <Compile Include="Command\Tpaccept.cs" />
+    <Compile Include="Command\Tpdeny.cs" />
     <Compile Include="HerbTeleportRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Command\TPACommand.cs" />
+    <Compile Include="Command\TPA.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -13,11 +13,21 @@
 
 using System;
 
+using MiNET;
+using MiNET.Plugins.Attributes;
+
 namespace HerbTeleportRequest.Command
 {
 
-    class TpaCommand : HerbTeleportRequest
+    class TPA : HerbTeleportRequest
     {
 
+        [Command(
+            Name = "tpa"
+            )]
+        public void TpaCommand(Player sender)
+        {
+
+        }
     }
 }
