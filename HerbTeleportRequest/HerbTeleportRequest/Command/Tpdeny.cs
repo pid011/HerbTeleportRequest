@@ -11,13 +11,37 @@
     Directed by Herb9.
 */
 
-using System;
+using MiNET;
+using MiNET.Plugins;
+using MiNET.Plugins.Attributes;
+
+using HerbTeleportRequest;
 
 namespace HerbTeleportRequest.Command
 {
 
-    class Tpdeny : HerbTeleportRequest
+    public class Tpdeny
     {
 
+        /** @var PluginManager plugin */
+        private readonly PluginManager plugin;
+
+        /** @var string Prefix */
+        private string Prefix;
+
+        public Tpdeny(PluginManager pluginmanager)
+        {
+            plugin = pluginmanager;
+
+            Prefix = HerbTeleportRequest.Prefix;
+        }
+
+        [Command(
+            Name = "tpdeny"
+            )]
+        public void TpaCommand(Player sender)
+        {
+
+        }
     }
 }

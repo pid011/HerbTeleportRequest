@@ -20,7 +20,7 @@ using HerbTeleportRequest;
 namespace HerbTeleportRequest.Command
 {
 
-    public class Tpaccept
+    public class Tphere
     {
 
         /** @var PluginManager plugin */
@@ -29,7 +29,7 @@ namespace HerbTeleportRequest.Command
         /** @var string Prefix */
         private string Prefix;
 
-        public Tpaccept(PluginManager pluginmanager)
+        public Tphere(PluginManager pluginmanager)
         {
             plugin = pluginmanager;
 
@@ -37,9 +37,9 @@ namespace HerbTeleportRequest.Command
         }
 
         [Command(
-            Name = "tpaccept"
+            Name = "tphere"
             )]
-        public void TpacceptCommand(Player sender)
+        public void TphereCommand(Player sender)
         {
 
         }

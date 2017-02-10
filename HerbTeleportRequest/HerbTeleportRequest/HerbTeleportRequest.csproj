@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Command\Tpaccept.cs" />
     <Compile Include="Command\Tpdeny.cs" />
+    <Compile Include="Command\Tphere.cs" />
     <Compile Include="HerbTeleportRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Command\TPA.cs" />

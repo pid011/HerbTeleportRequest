@@ -13,7 +13,6 @@
 
 using System;
 
-using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 
@@ -37,9 +36,12 @@ namespace HerbTeleportRequest
 
         private void RegisterCommands()
         {
-            var Plugin = Context.Server.PluginManager;
+            var PluginManager = Context.Server.PluginManager;
 
-            Context.PluginManager.LoadCommands(new TPA(Plugin));
+            Context.PluginManager.LoadCommands(new TPA(PluginManager));
+            Context.PluginManager.LoadCommands(new Tpaccept(PluginManager));
+            Context.PluginManager.LoadCommands(new Tpdeny(PluginManager));
+            Context.PluginManager.LoadCommands(new Tphere(PluginManager));
         }
     }
 }
