@@ -81,6 +81,7 @@
     <Compile Include="Command\Tphere.cs" />
     <Compile Include="HerbTeleportRequest.cs" />
     <Compile Include="HTPLoader.cs" />
+    <Compile Include="HTPPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Command\TPA.cs" />
   </ItemGroup>
