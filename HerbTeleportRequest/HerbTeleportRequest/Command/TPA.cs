@@ -14,20 +14,20 @@
 using System;
 
 using MiNET;
+using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 
 namespace HerbTeleportRequest.Command
 {
 
-    class TPA : HerbTeleportRequest
+    public class TPA
     {
 
-        [Command(
-            Name = "tpa"
-            )]
-        public void TpaCommand(Player sender)
-        {
+        private readonly PluginManager plugin;
 
+        public TPA(PluginManager pluginmanager)
+        {
+            plugin = pluginmanager;
         }
     }
 }

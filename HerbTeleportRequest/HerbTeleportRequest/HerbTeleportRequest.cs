@@ -17,12 +17,29 @@ using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 
+using HerbTeleportRequest.Command;
+
 namespace HerbTeleportRequest
 {
 
     [Plugin]
     public class HerbTeleportRequest : Plugin
     {
+
         public const string Prefix = "";
+
+        protected override void OnEnable()
+        {
+            Console.WriteLine();
+
+            RegisterCommands();
+        }
+
+        private void RegisterCommands()
+        {
+            var Plugin = Context.Server.PluginManager;
+
+            Context.PluginManager.LoadCommands(new TPA(Plugin));
+        }
     }
 }
