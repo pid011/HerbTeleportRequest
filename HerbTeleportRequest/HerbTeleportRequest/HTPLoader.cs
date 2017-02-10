@@ -11,36 +11,30 @@
     Directed by Herb9.
 */
 
+using System;
+
 using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 
 using HerbTeleportRequest;
 
-namespace HerbTeleportRequest.Command
+namespace HerbTeleportRequest
 {
 
-    public class TPA
+    [Plugin(
+        PluginName = "HerbTeleportRequest",
+        Description = "Allows regular users to teleport to and summon based on an acceptance of the other user.",
+        PluginVersion = "1.0",
+        Author = "Herb9"
+        )]
+    public class HTPLoader : Plugin
     {
+        private string prefix;
 
-        /** @var PluginManager plugin */
-        private readonly PluginManager plugin;
-
-        /** @var string Prefix */
-        private string Prefix;
-
-        public TPA(PluginManager pluginmanager)
+        protected override void OnEnable()
         {
-            plugin = pluginmanager;
-
-            Prefix = HerbTeleportRequest.Prefix;
-        }
-
-        [Command(
-            Name = "tpa"
-            )]
-        public void TpaCommand(Player sender)
-        {
+            prefix = new HerbTeleportRequest().prefix;
         }
     }
 }

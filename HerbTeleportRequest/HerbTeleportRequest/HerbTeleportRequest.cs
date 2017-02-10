@@ -13,35 +13,50 @@
 
 using System;
 
+using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
+
+using MiNET.Utils;
 
 using HerbTeleportRequest.Command;
 
 namespace HerbTeleportRequest
 {
 
-    [Plugin]
-    public class HerbTeleportRequest : Plugin
+    class HerbTeleportRequest
     {
 
-        public const string Prefix = "";
+        public string prefix { get; set; }
 
-        protected override void OnEnable()
+        public HerbTeleportRequest()
         {
-            Console.WriteLine();
-
-            RegisterCommands();
+            prefix = "\x5b\x48\x65\x72\x62\x54\x65\x6c\x65\x70\x6f\x72\x74\x52\x65\x71\x75\x65\x73\x74\x5d";
         }
 
-        private void RegisterCommands()
+        public bool IsRequested(Player player)
         {
-            var PluginManager = Context.Server.PluginManager;
+            return true;
+        }
 
-            Context.PluginManager.LoadCommands(new TPA(PluginManager));
-            Context.PluginManager.LoadCommands(new Tpaccept(PluginManager));
-            Context.PluginManager.LoadCommands(new Tpdeny(PluginManager));
-            Context.PluginManager.LoadCommands(new Tphere(PluginManager));
+        public void TeleportPlayer(Player player, Player target)
+        {
+
+        }
+
+        public void TeleportHere(Player player, Player target)
+        {
+
+        }
+
+        public void DenyPlayer(Player player, Player target)
+        {
+
+        }
+
+        public void RequestPlayer(Player player, Player target)
+        {
+
         }
     }
 }
