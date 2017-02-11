@@ -11,12 +11,10 @@
     Directed by Herb9.
 */
 
-using MiNET;
-
 namespace HerbTeleportRequest
 {
 
-    class HerbTeleportRequest
+    public class PlayerManager
     {
 
     }

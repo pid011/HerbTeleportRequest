@@ -11,13 +11,8 @@
     Directed by Herb9.
 */
 
-using System;
-
-using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
-
-using HerbTeleportRequest;
 
 namespace HerbTeleportRequest
 {
@@ -28,13 +23,8 @@ namespace HerbTeleportRequest
         PluginVersion = "1.0",
         Author = "Herb9"
         )]
-    public class HTPLoader : Plugin
+    public class PluginLoader : Plugin
     {
-        private string prefix;
 
-        protected override void OnEnable()
-        {
-            prefix = new HerbTeleportRequest().prefix;
-        }
     }
 }

@@ -11,36 +11,11 @@
     Directed by Herb9.
 */
 
-using MiNET;
-using MiNET.Plugins;
-using MiNET.Plugins.Attributes;
-
-using HerbTeleportRequest;
-
 namespace HerbTeleportRequest.Command
 {
 
     public class TPA
     {
 
-        /** @var PluginManager plugin */
-        private readonly PluginManager plugin;
-
-        /** @var string Prefix */
-        private string Prefix;
-
-        public TPA(PluginManager pluginmanager)
-        {
-            plugin = pluginmanager;
-
-            Prefix = HerbTeleportRequest.Prefix;
-        }
-
-        [Command(
-            Name = "tpa"
-            )]
-        public void TpaCommand(Player sender)
-        {
-        }
     }
 }

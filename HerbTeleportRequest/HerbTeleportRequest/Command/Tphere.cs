@@ -11,37 +11,11 @@
     Directed by Herb9.
 */
 
-using MiNET;
-using MiNET.Plugins;
-using MiNET.Plugins.Attributes;
-
-using HerbTeleportRequest;
-
 namespace HerbTeleportRequest.Command
 {
 
     public class Tphere
     {
 
-        /** @var PluginManager plugin */
-        private readonly PluginManager plugin;
-
-        /** @var string Prefix */
-        private string Prefix;
-
-        public Tphere(PluginManager pluginmanager)
-        {
-            plugin = pluginmanager;
-
-            Prefix = HerbTeleportRequest.Prefix;
-        }
-
-        [Command(
-            Name = "tphere"
-            )]
-        public void TphereCommand(Player sender)
-        {
-
-        }
     }
 }
