@@ -11,13 +11,58 @@
     Directed by Herb9.
 */
 
+using System;
+
 using MiNET;
+using MiNET.Plugins;
+using MiNET.Plugins.Attributes;
 
 namespace HerbTeleportRequest
 {
 
-    class HerbTeleportRequest
+    public class HerbTeleportRequest
     {
 
+        public const string Prefix = "\x5b\x48\x65\x72\x62\x54\x65\x6c\x65\x70\x6f\x72\x74\x52\x65\x71\x75\x65\x73\x74\x5d";
+
+        public string[] RequestList { get; set; }
+
+        public void MadeRequest(Player requester, Player target)
+        {
+            
+        }
+
+        public void RemoveRequest(Player requester, Player target)
+        {
+
+        }
+
+        public void ReceiveRequest(Player requester, string type = null)
+        {
+
+        }
+
+        public void TeleportTarget(Player requester)
+        {
+
+        }
+
+        public void TeleportHere(Player requester)
+        {
+
+        }
+
+        public bool CanReceive(string var, Player target)
+        {
+            foreach(var user in target.Level.Players)
+            {
+                if (user.Value.Username.Contains(var))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

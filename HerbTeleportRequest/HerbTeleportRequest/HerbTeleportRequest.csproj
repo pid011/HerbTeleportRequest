@@ -82,7 +82,6 @@
     <Compile Include="Command\Tphere.cs" />
     <Compile Include="HerbTeleportRequest.cs" />
     <Compile Include="PluginLoader.cs" />
-    <Compile Include="PlayerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Command\TPA.cs" />
   </ItemGroup>
