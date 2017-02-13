@@ -16,6 +16,7 @@ using System;
 using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
+using MiNET.Worlds;
 
 namespace HerbTeleportRequest
 {
@@ -52,11 +53,11 @@ namespace HerbTeleportRequest
 
         }
 
-        public bool CanReceive(string var, Player target)
+        public bool CanReceive(string var, Level level)
         {
-            foreach(var user in target.Level.Players)
+            foreach(var player in level.Players)
             {
-                if (user.Value.Username.Contains(var))
+                if (player.Value.Username.Contains(var))
                 {
                     return true;
                 }
