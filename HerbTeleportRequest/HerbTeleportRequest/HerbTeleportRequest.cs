@@ -13,6 +13,9 @@
 
 using System;
 
+using System.
+using System.Collections.Generic;
+
 using MiNET;
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
@@ -26,11 +29,9 @@ namespace HerbTeleportRequest
 
         public const string Prefix = "\x5b\x48\x65\x72\x62\x54\x65\x6c\x65\x70\x6f\x72\x74\x52\x65\x71\x75\x65\x73\x74\x5d";
 
-        public string[] RequestList { get; set; }
-
         public void MadeRequest(Player requester, Player target)
         {
-            
+
         }
 
         public void RemoveRequest(Player requester, Player target)
@@ -64,6 +65,11 @@ namespace HerbTeleportRequest
             }
 
             return false;
+        }
+
+        public bool IsRequested(Player target)
+        {
+
         }
     }
 }

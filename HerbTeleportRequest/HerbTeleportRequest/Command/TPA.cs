@@ -11,11 +11,34 @@
     Directed by Herb9.
 */
 
+using MiNET;
+using MiNET.Plugins;
+using MiNET.Plugins.Attributes;
+
 namespace HerbTeleportRequest.Command
 {
 
     public class TPA
     {
 
+        private string Prefix;
+
+        public TPA(PluginManager pluginmanager)
+        {
+            Prefix = HerbTeleportRequest.Prefix;
+        }
+
+        [Command(
+            Name = "tpa",
+            Description = "Request to be teleported to a user"
+            )]
+        public void execute(Player requester, string var)
+        {
+            if(! new HerbTeleportRequest().CanReceive(var, requester.Level))
+            {
+                requester.SendMessage($"{Prefix} {var} is not a valid player.");
+            }
+            else if()
+        }
     }
 }
