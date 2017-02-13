@@ -13,13 +13,11 @@
 
 using System;
 
-using System.
 using System.Collections.Generic;
 
 using MiNET;
-using MiNET.Plugins;
-using MiNET.Plugins.Attributes;
-using MiNET.Worlds;
+
+using MiNET.Utils;
 
 namespace HerbTeleportRequest
 {
@@ -29,47 +27,72 @@ namespace HerbTeleportRequest
 
         public const string Prefix = "\x5b\x48\x65\x72\x62\x54\x65\x6c\x65\x70\x6f\x72\x74\x52\x65\x71\x75\x65\x73\x74\x5d";
 
-        public void MadeRequest(Player requester, Player target)
+        private Dictionary<string, string> RequestTpList = new Dictionary<string, string>();
+
+        private Dictionary<string, string> RequestHereList = new Dictionary<string, string>();
+
+        public HerbTeleportRequest()
         {
 
         }
 
-        public void RemoveRequest(Player requester, Player target)
+        public void MakeRequest(Player requester, Player target, int type)
         {
-
-        }
-
-        public void ReceiveRequest(Player requester, string type = null)
-        {
-
-        }
-
-        public void TeleportTarget(Player requester)
-        {
-
-        }
-
-        public void TeleportHere(Player requester)
-        {
-
-        }
-
-        public bool CanReceive(string var, Level level)
-        {
-            foreach(var player in level.Players)
+            switch (type)
             {
-                if (player.Value.Username.Contains(var))
-                {
-                    return true;
-                }
-            }
+                case 0:
 
-            return false;
+                    RequestTpList.Add(target.Username, requester.Username);
+
+                    break;
+
+                case 1:
+
+                    RequestHereList.Add(requester.Username, target.Username);
+
+                    break;
+
+                default:
+
+                    break;
+            }
         }
 
-        public bool IsRequested(Player target)
+        public void RemoveRequest(Player player, int type)
+        {
+            switch (type)
+            {
+                case 0:
+
+                    RequestTpList.Remove(player.Username);
+
+                    break;
+
+                case 1:
+
+                    RequestHereList.Remove(player.Username);
+
+                    break;
+
+                default:
+
+                    break;
+            }
+        }
+
+        public void ReceiveRequest(Player target, string type)
         {
 
+        }
+
+        public void DenyRequest(Player target)
+        {
+
+        }
+
+        public void TeleportPlayer(Player player, Player target)
+        {
+            player.Teleport(new PlayerLocation() { X = target.KnownPosition.X, Y = target.KnownPosition.Y, Z = target.KnownPosition.Z, HeadYaw = target.KnownPosition.HeadYaw, Yaw = target.KnownPosition.Yaw, Pitch = target.KnownPosition.Pitch });
         }
     }
 }

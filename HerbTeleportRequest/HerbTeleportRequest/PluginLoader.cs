@@ -26,5 +26,25 @@ namespace HerbTeleportRequest
     public class PluginLoader : Plugin
     {
 
+        private string Prefix;
+
+        protected override void OnEnable()
+        {
+            Prefix = HerbTeleportRequest.Prefix;
+
+            CheckUpdate();
+
+            RegisterCommands();
+        }
+
+        private void CheckUpdate()
+        {
+
+        }
+
+        private void RegisterCommands()
+        {
+
+        }
     }
 }
