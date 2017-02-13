@@ -14,6 +14,8 @@
 using MiNET.Plugins;
 using MiNET.Plugins.Attributes;
 
+using HerbTeleportRequest.Command;
+
 namespace HerbTeleportRequest
 {
 
@@ -44,7 +46,10 @@ namespace HerbTeleportRequest
 
         private void RegisterCommands()
         {
-
+            Context.PluginManager.LoadCommands(new TPA(Context.Server.PluginManager));
+            Context.PluginManager.LoadCommands(new Tpaccept(Context.Server.PluginManager));
+            Context.PluginManager.LoadCommands(new Tpdeny(Context.Server.PluginManager));
+            Context.PluginManager.LoadCommands(new Tphere(Context.Server.PluginManager));
         }
     }
 }

@@ -19,6 +19,8 @@ using MiNET;
 
 using MiNET.Utils;
 
+using MiNET.Worlds;
+
 namespace HerbTeleportRequest
 {
 
@@ -27,62 +29,33 @@ namespace HerbTeleportRequest
 
         public const string Prefix = "\x5b\x48\x65\x72\x62\x54\x65\x6c\x65\x70\x6f\x72\x74\x52\x65\x71\x75\x65\x73\x74\x5d";
 
-        private Dictionary<string, string> RequestTpList = new Dictionary<string, string>();
-
-        private Dictionary<string, string> RequestHereList = new Dictionary<string, string>();
+        private Dictionary<string, string> RequestList = new Dictionary<string, string>();
 
         public HerbTeleportRequest()
         {
 
         }
 
-        public void MakeRequest(Player requester, Player target, int type)
+        public void MakeRequest(Player requester, Player target)
         {
-            switch (type)
-            {
-                case 0:
-
-                    RequestTpList.Add(target.Username, requester.Username);
-
-                    break;
-
-                case 1:
-
-                    RequestHereList.Add(requester.Username, target.Username);
-
-                    break;
-
-                default:
-
-                    break;
-            }
+            RequestList.Add(target.Username, requester.Username);
         }
 
-        public void RemoveRequest(Player player, int type)
+        public void RemoveRequest(Player player)
         {
-            switch (type)
-            {
-                case 0:
-
-                    RequestTpList.Remove(player.Username);
-
-                    break;
-
-                case 1:
-
-                    RequestHereList.Remove(player.Username);
-
-                    break;
-
-                default:
-
-                    break;
-            }
+            RequestList.Remove(player.Username);
         }
 
-        public void ReceiveRequest(Player target, string type)
+        public void ReceiveRequest(Player player, bool type)
         {
+            string target = null;
 
+            RequestList.TryGetValue(player.Username, out target);
+
+            if (GetNameByPlayer(target) != null)
+            {
+                type ? TeleportPlayer(player, GetPlayer(target)) : TeleportPlayer(GetPlayer(target), player);
+            }
         }
 
         public void DenyRequest(Player target)
@@ -93,6 +66,21 @@ namespace HerbTeleportRequest
         public void TeleportPlayer(Player player, Player target)
         {
             player.Teleport(new PlayerLocation() { X = target.KnownPosition.X, Y = target.KnownPosition.Y, Z = target.KnownPosition.Z, HeadYaw = target.KnownPosition.HeadYaw, Yaw = target.KnownPosition.Yaw, Pitch = target.KnownPosition.Pitch });
+        }
+
+        public Player GetNameByPlayer(string var, Level level)
+        {
+            foreach(var player in level.Players)
+            {
+                if (player.Value.Username.Contains(var))
+                {
+                    return player.Value;
+                }
+                else
+                {
+                    return null;
+                }
+            }
         }
     }
 }

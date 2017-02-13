@@ -76,6 +76,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\TPA.cs" />
+    <Compile Include="Command\Tpaccept.cs" />
+    <Compile Include="Command\Tpdeny.cs" />
+    <Compile Include="Command\Tphere.cs" />
     <Compile Include="HerbTeleportRequest.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
