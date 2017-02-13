@@ -15,6 +15,8 @@ using System;
 
 using System.Collections.Generic;
 
+using System.Linq;
+
 using MiNET;
 
 using MiNET.Utils;
@@ -70,17 +72,7 @@ namespace HerbTeleportRequest
 
         public Player GetNameByPlayer(string var, Level level)
         {
-            foreach(var player in level.Players)
-            {
-                if (player.Value.Username.Contains(var))
-                {
-                    return player.Value;
-                }
-                else
-                {
-                    return null;
-                }
-            }
+            return level.Players.ToList().Find(x => x.Value.Username == var).Value ?? null;
         }
     }
 }
